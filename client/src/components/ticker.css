@@ -1,0 +1,39 @@
+.ticker-row {
+	display: flex;
+
+	justify-content: space-between;
+	border: solid rgba(113, 111, 111, 0.742) 2px;
+}
+.tickers-info-container {
+	width: 75%;
+	font-size: 24px;
+	display: block;
+	justify-content: center;
+	background-color: rgba(78, 76, 76, 0.895);
+
+	color: white;
+}
+.single-ticker-container {
+	justify-content: center;
+	text-align: center;
+	width: 17%;
+}
+.header-row-container {
+	background-color: rgba(17, 16, 16, 0.895);
+}
+.company-name-col {
+	color: rgb(9, 59, 109);
+	font-weight: 500;
+}
+.diff-data-positive {
+	color: rgb(32, 196, 32);
+	text-shadow: rgb(29, 28, 26) 0 0 4px;
+}
+.diff-data-negative {
+	color: rgb(239, 96, 13);
+	text-shadow: rgb(29, 28, 26) 0 0 4px;
+}
+.arrow {
+	width: 25px;
+	height: 25px;
+}
