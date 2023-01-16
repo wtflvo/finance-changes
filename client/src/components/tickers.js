@@ -7,7 +7,7 @@ import {
 	selectMicrosoft,
 	selectTesla,
 } from "../features/tickers/tickersSelectors";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ticker.css";
 
 const columns = [
@@ -18,11 +18,18 @@ const columns = [
 	"Dividend",
 	"Yield",
 ];
-function TickerHeaderRow() {
-	const headerRow = columns.map((columnName) => (
+
+function HeaderName(props) {
+	return (
 		<div className="single-ticker-container">
-			<h4>{columnName}</h4>
+			<h4>{props.columnName}</h4>
 		</div>
+	);
+}
+
+function TickerHeaderRow() {
+	const headerRow = columns.map((column, index) => (
+		<HeaderName columnName={column} key={(index * 100).toString()} />
 	));
 	return <div className="ticker-row header-row-container">{headerRow}</div>;
 }
@@ -49,12 +56,34 @@ function TickerDiffData(props) {
 }
 
 function TickerDataRow(props) {
+	const actualData = [
+		props.ticker.price,
+		props.ticker.change,
+		props.ticker.change_percent,
+		props.ticker.dividend,
+		props.ticker.yield,
+	];
+	const diffData = [
+		props.ticker.diffPrice,
+		props.ticker.diffChange,
+		props.ticker.diffChange_percent,
+		props.ticker.diffDividend,
+		props.ticker.diffYield,
+	];
+	const actualDataReworked = actualData.map((elem, index) => (
+		<div className="single-ticker-container" key={index.toString()}>
+			<p>{elem}</p>
+			<TickerDiffData diff={diffData[index]} />
+		</div>
+	));
+	console.log("Single ticker", actualData);
 	return (
 		<div className="ticker-row">
 			<div className="single-ticker-container">
 				<p className="company-name-col">{props.ticker.id}</p>
 			</div>
-			<div className="single-ticker-container">
+			{actualDataReworked}
+			{/* <div className="single-ticker-container">
 				<p>{props.ticker.price}</p>
 				<TickerDiffData diff={props.ticker.diffPrice} />
 			</div>
@@ -73,7 +102,7 @@ function TickerDataRow(props) {
 			<div className="single-ticker-container">
 				<p>{props.ticker.yield}</p>
 				<TickerDiffData diff={props.ticker.diffYield} />
-			</div>
+			</div> */}
 		</div>
 	);
 }
@@ -85,19 +114,29 @@ function TickersTable() {
 	const Tesla = useSelector(selectTesla);
 	const Facebook = useSelector(selectFacebook);
 	const Google = useSelector(selectGoogle);
+
+	console.log(Apple, Amazon, "Apple", "Amazon");
+	const tickers = [Apple, Amazon, Microsoft, Tesla, Facebook, Google];
+	const tickersReworked = tickers.map((elem, index) => (
+		<TickerDataRow ticker={elem} key={(index * 10).toString()} />
+	));
+	console.log("Main Tickers", tickers)
 	return (
 		<React.Fragment>
 			<TickerHeaderRow />
-			<TickerDataRow ticker={Apple} />
+			<React.Fragment>{tickersReworked}</React.Fragment>
+
+			{/* <TickerDataRow ticker={Apple} />
 			<TickerDataRow ticker={Google} />
 			<TickerDataRow ticker={Amazon} />
 			<TickerDataRow ticker={Microsoft} />
 			<TickerDataRow ticker={Facebook} />
-			<TickerDataRow ticker={Tesla} />
+			<TickerDataRow ticker={Tesla} /> */}
 		</React.Fragment>
 	);
 }
 export function TickersInfoContainer() {
+	console.log("Main container spawned")
 	return (
 		<div className="tickers-info-container">
 			<TickersTable />

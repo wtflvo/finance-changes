@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
-
-
 export const tickersSlice = createSlice({
 	name: "tickers",
 
@@ -89,8 +85,7 @@ export const tickersSlice = createSlice({
 	},
 	reducers: {
 		changeApplePrice: (state, action) => {
-			
-
+			console.log("States are starting update");
 			state.Apple.diffPrice = (
 				action.payload[0].price - state.Apple.price
 			).toFixed(2);
@@ -131,7 +126,6 @@ export const tickersSlice = createSlice({
 				action.payload[1].yield - state.Google.yield
 			).toFixed(2);
 
-
 			state.Google.price = action.payload[1].price;
 			state.Google.change = action.payload[1].change;
 			state.Google.change_percent = action.payload[1].change_percent;
@@ -155,6 +149,7 @@ export const tickersSlice = createSlice({
 				action.payload[2].yield - state.Microsoft.yield
 			).toFixed(2);
 
+			console.log("States is updating");
 
 			state.Microsoft.price = action.payload[2].price;
 			state.Microsoft.change = action.payload[2].change;
@@ -251,6 +246,7 @@ export const tickersChangeAsync = (data) => (dispatch) => {
 		dispatch(changeFacebookPrice(data.prices));
 		dispatch(changeGooglePrice(data.prices));
 		dispatch(changeMicrosoftPrice(data.prices));
+		console.log("States updated");
 	}
 };
 
