@@ -29,7 +29,7 @@ function GetData() {
 			setIsConnected(false);
 		});
 
-		socket.on("ticker", async (data) => {
+		socket.on("ticker", (data) => {
 			let tickersData = [];
 			tickersData = modifyData(data);
 
@@ -53,7 +53,6 @@ function GetData() {
 }
 
 export default GetData;
-
 
 // const dispatch = useDispatch();
 // const selectPrev = useSelector(selectPrevTicker);

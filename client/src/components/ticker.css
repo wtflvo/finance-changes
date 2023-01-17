@@ -22,8 +22,9 @@
 	background-color: rgba(17, 16, 16, 0.895);
 }
 .company-name-col {
-	color: rgb(9, 59, 109);
+	color: rgb(73, 143, 214);
 	font-weight: 500;
+	text-shadow: rgb(29, 28, 26) 0 0 5px;
 }
 .diff-data-positive {
 	color: rgb(32, 196, 32);
