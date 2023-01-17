@@ -1,15 +1,12 @@
 import "./App.css";
-
-// import { io } from "socket.io-client";
+import { TickersDashboard } from "./components/TickersDashboard";
 
 import GetData from "./services/getTickersData";
-
-import { TickersInfoContainer } from "./components/tickers";
 
 function App() {
 	return (
 		<div className="App">
-			<TickersInfoContainer />
+			<TickersDashboard />
 			<GetData />
 		</div>
 	);

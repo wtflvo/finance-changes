@@ -4,7 +4,7 @@ const http = require("http");
 const io = require("socket.io");
 const cors = require("cors");
 
-const FETCH_INTERVAL = 5000;
+let FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
 
 const tickers = [
@@ -89,6 +89,9 @@ socketServer.on("connection", (socket) => {
 	socket.on("start", () => {
 		trackTickers(socket);
 	});
+});
+socketServer.on("1000", () => {
+	FETCH_INTERVAL = 1000;
 });
 
 server.listen(PORT, () => {
