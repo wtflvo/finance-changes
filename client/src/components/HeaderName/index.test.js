@@ -5,9 +5,9 @@ import { HeaderName } from ".";
 import React from "react";
 
 describe("<HeaderName>", () => {
-	it("should render component", () => {
+	it("should render single header cell", () => {
 		render(<HeaderName columnName={"Header"} />);
-		const element = screen.getByText(/Header/i);
-		expect(element).toBeInTheDocument();
+		
+		expect(screen.getByText("Header")).toBeInTheDocument();
 	});
 });
