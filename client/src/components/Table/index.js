@@ -24,7 +24,7 @@ export function Table() {
 	];
 
 	const tickersReworked = tickers.map((elem) => (
-		<DataRow ticker={elem} key={elem.id} />
+		<DataRow ticker={elem} key={elem.name} />
 	));
 
 	return (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { Table } from "../TickersTable";
+import { Table } from "../Table";
 
 export function TickersDashboard() {
 	return (

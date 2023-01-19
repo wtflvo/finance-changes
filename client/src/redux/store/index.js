@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tickersSliceReducer from "../tickersSlice";
+import tickersSliceReducer from "../slices/tickersSlice";
 
 export default configureStore({
 	reducer: {

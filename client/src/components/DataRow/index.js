@@ -1,3 +1,4 @@
+
 import { DiffData } from "../DiffData";
 
 export function DataRow(props) {
@@ -12,7 +13,7 @@ export function DataRow(props) {
 		diffChange_percent,
 		diffDividend,
 		diffYield,
-		id
+		name,
 	} = props.ticker;
 
 	const actualData = [price, change, change_percent, dividend, dataYield];
@@ -21,7 +22,7 @@ export function DataRow(props) {
 		diffChange,
 		diffChange_percent,
 		diffDividend,
-		diffYield
+		diffYield,
 	];
 	let startIndicator =
 		actualData[0] === diffData[0] && actualData[1] === diffData[1]
@@ -38,7 +39,7 @@ export function DataRow(props) {
 	return (
 		<div className="ticker-row">
 			<div className="single-ticker-container">
-				<p className="company-name-col">{id}</p>
+				<p className="company-name-col">{name}</p>
 			</div>
 			{actualDataReworked}
 		</div>

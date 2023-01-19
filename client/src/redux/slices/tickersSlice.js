@@ -6,7 +6,9 @@ import {
 	teslaPriceReducer,
 	facebookPriceReducer,
 	googlePriceReducer,
-} from "./reducers/tickersReducer";
+	intervalReducer,
+} from "../reducers/tickersReducer";
+
 export const tickersSlice = createSlice({
 	name: "tickers",
 
@@ -22,7 +24,9 @@ export const tickersSlice = createSlice({
 			diffDividend: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "AMZN",
+			name: "Amazon",
+			isVisible: true,
+			isUpdated: true,
 		},
 		Apple: {
 			price: 0,
@@ -35,7 +39,9 @@ export const tickersSlice = createSlice({
 			diffDividend: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "APPL",
+			name: "Apple",
+			isVisible: true,
+			isUpdated: true,
 		},
 
 		Facebook: {
@@ -49,7 +55,9 @@ export const tickersSlice = createSlice({
 			diffDividend: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "FB",
+			name: "Facebook",
+			isVisible: true,
+			isUpdated: true,
 		},
 		Google: {
 			price: 0,
@@ -62,7 +70,9 @@ export const tickersSlice = createSlice({
 			diffDivident: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "GOOGL",
+			name: "Google",
+			isVisible: true,
+			isUpdated: true,
 		},
 		Microsoft: {
 			price: 0,
@@ -75,7 +85,9 @@ export const tickersSlice = createSlice({
 			diffDividend: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "MSFT",
+			name: "Microsoft",
+			isVisible: true,
+			isUpdated: true,
 		},
 
 		Tesla: {
@@ -89,8 +101,11 @@ export const tickersSlice = createSlice({
 			diffDividend: 0,
 			yield: 0,
 			diffYield: 0,
-			id: "TSLA",
+			name: "Tesla",
+			isVisible: true,
+			isUpdated: true,
 		},
+		interval: 5000,
 	},
 	reducers: {
 		amazonPriceReducer,
@@ -99,9 +114,9 @@ export const tickersSlice = createSlice({
 		googlePriceReducer,
 		microsoftPriceReducer,
 		teslaPriceReducer,
+		intervalReducer,
 	},
 });
-
 
 export const {
 	amazonPriceReducer: amazonPrice,
@@ -110,16 +125,18 @@ export const {
 	googlePriceReducer: googlePrice,
 	microsoftPriceReducer: microsoftPrice,
 	teslaPriceReducer: teslaPrice,
+	intervalReducer: interval,
 } = tickersSlice.actions;
 
 export const tickersChangeAsync = (data) => (dispatch) => {
-	if (data.case === "all") {
-		dispatch(amazonPrice(data.prices));
-		dispatch(applePrice(data.prices));
-		dispatch(facebookPrice(data.prices));
-		dispatch(googlePrice(data.prices));
-		dispatch(microsoftPrice(data.prices));
-		dispatch(teslaPrice(data.prices));
+	if (data.cases === "all") {
+		dispatch(amazonPrice(data.value));
+		dispatch(applePrice(data.value));
+		dispatch(facebookPrice(data.value));
+		dispatch(googlePrice(data.value));
+		dispatch(microsoftPrice(data.value));
+		dispatch(teslaPrice(data.value));
+		dispatch(interval(data.value));
 	}
 };
 

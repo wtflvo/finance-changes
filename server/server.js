@@ -45,6 +45,8 @@ function getQuotes(socket) {
 		last_trade_time: utcDate(),
 	}));
 
+	quotes.push({ interval: FETCH_INTERVAL });
+
 	socket.emit("ticker", quotes);
 }
 
@@ -89,10 +91,36 @@ socketServer.on("connection", (socket) => {
 	socket.on("start", () => {
 		trackTickers(socket);
 	});
+	socket.on("data", (data) => {
+		if (data === "1000") {
+			FETCH_INTERVAL = 1000;
+			console.log(`1000`);
+		} else if (data === "10000") {
+			FETCH_INTERVAL = 10000;
+			console.log(`10000`);
+		} else {
+			FETCH_INTERVAL = 5000;
+			console.log(`5000`);
+		}
+	});
 });
-socketServer.on("1000", () => {
-	FETCH_INTERVAL = 1000;
-});
+// io.on("connection", function (socket) {
+// 	console.log("client connected");
+
+// 	socket.on("data", function (data) {
+// 		FETCH_INTERVAL = 1000;
+// 		console.log(`data received is '${data}'`);
+// 	});
+// });
+
+// socket.on("data", (data) => {
+// 	FETCH_INTERVAL = 1000;
+// 	console.log(`${data}`);
+// });
+
+// socketServer.on("1000", (socket) => {
+// 	socket.on("1000", () => (FETCH_INTERVAL = 1000));
+// });
 
 server.listen(PORT, () => {
 	console.log(`Streaming service is running on http://localhost:${PORT}`);

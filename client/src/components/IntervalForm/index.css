@@ -1,0 +1,41 @@
+.interval-form {
+	display: flex;
+	font-size: 20px;
+	border-radius: 3px;
+	border: 2px solid rgb(91, 74, 205);
+	justify-content: space-between;
+	width: 71%;
+	margin: auto;
+	padding: 2%;
+}
+.interval-btn {
+	background-color: rgba(78, 76, 76, 0.895);
+	color: white;
+	font-size: 20px;
+	border: 2px solid rgb(91, 74, 205);
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 1% 2%;
+}
+.interval-btn:hover {
+	background-color: rgb(1, 1, 1);
+
+	color: rgb(32, 196, 32);
+}
+.interval-label {
+	padding: 1% 2%;
+}
+
+.interval-select {
+	background-color: rgba(78, 76, 76, 0.895);
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+	border: 2px solid rgb(91, 74, 205);
+	padding: 1% 2%;
+}
+
+.interval-select:hover {
+	cursor: pointer;
+	background-color: rgb(1, 1, 1);
+}

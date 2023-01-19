@@ -9,8 +9,9 @@
 	font-size: 24px;
 	display: block;
 	justify-content: center;
+	margin: 1rem auto;
 	background-color: rgba(78, 76, 76, 0.895);
-
+	border: 2px solid rgb(91, 74, 205); 
 	color: white;
 }
 .single-ticker-container {

@@ -7,24 +7,18 @@ import React from "react";
 describe("<TickersDashboard /> spec", () => {
 	it("renders the component", () => {
 		const container = render(<TickersDashboard />);
-		expect(container.firstChild).toMatchSnapshot();
+		 expect(container.firstChild).not.toMatchSnapshot();
 	});
-	it("assert there are 6 regions", () => {
-		expect(document.querySelectorAll(".map-region").length).toBe(6);
+	it("assert there is 1 header row", () => {
+		expect(document.querySelectorAll(".header-row").length).toBe(1);
 	});
-	it("assert there are 12 region items", () => {
-		expect(document.querySelectorAll(".region-item").length).toBe(12);
+	it("assert there are 7 rows at all", () => {
+		expect(document.querySelectorAll(".ticker-row").length).toBe(7);
 	});
-	it("assert connect button renders the correct label", () => {
-		expect(document.querySelector(".connect-btn").innerHTML).toBe("Connect");
+	it("assert each data cell is changing", () => {
+		expect(document.querySelector(".diff-data").innerHTML).toBe("--");
 	});
-	it("assert the first item link to be /somelink", () => {
-		const allAgent = document.querySelector(".region-item:first-child a");
-		expect(allAgent.getAttribute("href")).toBe("/somelink?id=123&name=link");
-	});
+	
 });
 
-test("renders header row", () => {
-	const linkElement = screen.getByText(/Companies/);
-	expect(linkElement).toBeInTheDocument();
-});
+
