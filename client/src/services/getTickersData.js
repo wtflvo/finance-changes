@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 import { tickersChangeAsync } from "../redux/slices/tickersSlice";
-// import { updateSelector } from "../redux/selectors/tickersSelectors";
+
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 

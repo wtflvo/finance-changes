@@ -10,13 +10,13 @@ function sendInterval(event) {
 
 	if (event.target.interval.value === "10000") {
 		socket.emit("data", "10000");
-		console.log("10000 sended");
+		
 	} else if (event.target.interval.value === "1000") {
 		socket.emit("data", "1000");
-		console.log("1000 sended");
+		
 	} else {
 		socket.emit("data", "5000");
-		console.log("5000 sended");
+		
 	}
 	let refresher = document.getElementById("refresher");
 	refresher.setAttribute("content", "1");
