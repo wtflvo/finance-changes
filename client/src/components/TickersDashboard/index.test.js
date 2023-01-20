@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import { TickersDashboard } from ".";
 
@@ -15,7 +15,7 @@ describe("<TickersDashboard /> spec", () => {
 		);
 		expect(container).toBeTruthy();
 
-		//  expect(getByText("HELLO")).toBeTruthy();
+		
 	});
 	it("assert there is 1 header row", () => {
 		render(
@@ -40,5 +40,9 @@ describe("<TickersDashboard /> spec", () => {
 			</Provider>
 		);
 		expect(document.querySelectorAll(".diff-data").length).toBe(30);
+		
 	});
 });
+
+
+

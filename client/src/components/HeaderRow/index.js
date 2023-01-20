@@ -1,6 +1,8 @@
 import { HeaderName } from "../HeaderName";
 import { columns } from "../../constants";
 
+
+
 export function HeaderRow() {
 	const headerRow = columns.map((column) => (
 		<HeaderName columnName={column} key={column.toString()} />

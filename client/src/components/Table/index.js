@@ -3,8 +3,12 @@ import { DataRow } from "../DataRow";
 import { HeaderRow } from "../HeaderRow";
 import React from "react";
 
+import { all } from "../../redux/selectors/tickersSelectors";
+
+
+
 export function Table() {
-	const state = useSelector((state) => state);
+	const state = useSelector(all);
 	const {
 		Amazon,
 		Apple,
@@ -13,7 +17,7 @@ export function Table() {
 		Microsoft,
 		Google
 	} = state.tickers;
-	
+
 	const tickers = [
 		Amazon,
 		Apple,
