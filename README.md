@@ -1,6 +1,7 @@
 DESKTOP VERSION 
+
 Requirements:
-**(done) application connects to the locally running service
+**(done) application connects to the locally running service**
 
 **(done) application renders price changes for some tickers in real time**
 
