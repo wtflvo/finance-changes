@@ -77,15 +77,6 @@ const socketServer = io(server, {
 app.get("/", function (req, res) {
 	res.sendFile(__dirname + "/index.html");
 });
-// const contacts = [];
-// app.get('/api/contacts', (req, res) => {
-//   res.json(contacts);
-// });
-// app.post('/api/contacts', (req, res) => {
-//   const contact = req.body;
-//   contacts.push(contact);
-//   res.status(201).json(contact);
-// });
 
 socketServer.on("connection", (socket) => {
 	socket.on("start", () => {
@@ -94,33 +85,13 @@ socketServer.on("connection", (socket) => {
 	socket.on("data", (data) => {
 		if (data === "1000") {
 			FETCH_INTERVAL = 1000;
-			console.log(`1000`);
 		} else if (data === "10000") {
 			FETCH_INTERVAL = 10000;
-			console.log(`10000`);
 		} else {
 			FETCH_INTERVAL = 5000;
-			console.log(`5000`);
 		}
 	});
 });
-// io.on("connection", function (socket) {
-// 	console.log("client connected");
-
-// 	socket.on("data", function (data) {
-// 		FETCH_INTERVAL = 1000;
-// 		console.log(`data received is '${data}'`);
-// 	});
-// });
-
-// socket.on("data", (data) => {
-// 	FETCH_INTERVAL = 1000;
-// 	console.log(`${data}`);
-// });
-
-// socketServer.on("1000", (socket) => {
-// 	socket.on("1000", () => (FETCH_INTERVAL = 1000));
-// });
 
 server.listen(PORT, () => {
 	console.log(`Streaming service is running on http://localhost:${PORT}`);
