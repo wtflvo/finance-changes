@@ -7,6 +7,8 @@ import {
 	facebookPriceReducer,
 	googlePriceReducer,
 	intervalReducer,
+	isUpdatedReducer,
+	isVisibleReducer,
 } from "../reducers/tickersReducer";
 
 export const tickersSlice = createSlice({
@@ -115,6 +117,8 @@ export const tickersSlice = createSlice({
 		microsoftPriceReducer,
 		teslaPriceReducer,
 		intervalReducer,
+		isUpdatedReducer,
+		isVisibleReducer,
 	},
 });
 
@@ -126,18 +130,18 @@ export const {
 	microsoftPriceReducer: microsoftPrice,
 	teslaPriceReducer: teslaPrice,
 	intervalReducer: interval,
+	isUpdatedReducer: update,
+	isVisibleReducer: visibility,
 } = tickersSlice.actions;
 
 export const tickersChangeAsync = (data) => (dispatch) => {
-	if (data.cases === "all") {
-		dispatch(amazonPrice(data.value));
-		dispatch(applePrice(data.value));
-		dispatch(facebookPrice(data.value));
-		dispatch(googlePrice(data.value));
-		dispatch(microsoftPrice(data.value));
-		dispatch(teslaPrice(data.value));
-		dispatch(interval(data.value));
-	}
+	dispatch(amazonPrice(data));
+	dispatch(applePrice(data));
+	dispatch(facebookPrice(data));
+	dispatch(googlePrice(data));
+	dispatch(microsoftPrice(data));
+	dispatch(teslaPrice(data));
+	dispatch(interval(data));
 };
 
 export default tickersSlice.reducer;

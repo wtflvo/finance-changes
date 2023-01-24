@@ -1,0 +1,12 @@
+.diff-data-positive {
+	color: rgb(32, 196, 32);
+	text-shadow: rgb(29, 28, 26) 0 0 4px;
+}
+.diff-data-negative {
+	color: rgb(239, 96, 13);
+	text-shadow: rgb(29, 28, 26) 0 0 4px;
+}
+.arrow {
+	width: 25px;
+	height: 25px;
+}

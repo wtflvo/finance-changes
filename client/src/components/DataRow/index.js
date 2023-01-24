@@ -1,7 +1,10 @@
-
+import { useDispatch } from "react-redux";
 import { DiffData } from "../DiffData";
+import { update } from "../../redux/slices/tickersSlice";
+import "./index.css";
 
 export function DataRow(props) {
+	const dispatch = useDispatch();
 	const {
 		price,
 		change,
@@ -14,6 +17,7 @@ export function DataRow(props) {
 		diffDividend,
 		diffYield,
 		name,
+		isVisible,
 	} = props.ticker;
 
 	const actualData = [price, change, change_percent, dividend, dataYield];
@@ -35,13 +39,23 @@ export function DataRow(props) {
 			<DiffData diff={diffData[index]} start={startIndicator} />
 		</div>
 	));
+	const visibility = isVisible ? { display: "flex" } : { display: "none" };
 
 	return (
-		<div className="ticker-row">
+		<div className="ticker-row" style={visibility}>
 			<div className="single-ticker-container">
 				<p className="company-name-col">{name}</p>
+				<img className="logo" src={`${name.toLowerCase()}.png`} alt="logo" />
 			</div>
 			{actualDataReworked}
+			<div className="single-ticker-container input-container">
+				<input
+					type="checkbox"
+					className="update-input"
+					defaultChecked
+					onClick={() => dispatch(update(name))}
+				/>
+			</div>
 		</div>
 	);
 }

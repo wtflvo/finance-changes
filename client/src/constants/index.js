@@ -5,4 +5,13 @@ export const columns = [
 	"Change(%)",
 	"Dividend",
 	"Yield",
+	"Updating",
+];
+export const names = [
+	"Amazon",
+	"Apple",
+	"Facebook",
+	"Google",
+	"Microsoft",
+	"Tesla",
 ];

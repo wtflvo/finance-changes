@@ -1,0 +1,6 @@
+.companies-row {
+	display: flex;
+	gap: 36px;
+	justify-content: center;
+}
+

@@ -22,7 +22,8 @@ export function sendInterval(event) {
 
 export function IntervalForm() {
 	const interval = useSelector(intervalSelector);
-	const memoInterval = useMemo(()=> interval, [interval])
+	const memoInterval = useMemo(() => interval, [interval]);
+
 	return (
 		<form onSubmit={(event) => sendInterval(event)} className="interval-form">
 			<div>
@@ -35,7 +36,7 @@ export function IntervalForm() {
 				name="interval"
 				id="interval"
 				defaultValue={""}
-				className="interval-select"
+				className="interval-select shining"
 			>
 				<option value="" disabled>
 					Update interval
@@ -52,7 +53,7 @@ export function IntervalForm() {
 			</select>
 			<button
 				type="submit"
-				className="interval-btn"
+				className="interval-btn shining"
 				name="submit"
 				data-testid="submit-interval"
 			>

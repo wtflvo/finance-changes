@@ -1,0 +1,10 @@
+.update-input {
+	transform: scale(1.8);
+}
+.input-container {
+	display: flex;
+	justify-content: space-around;
+}
+.logo{
+    max-height: 28px;
+}

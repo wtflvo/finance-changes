@@ -15,19 +15,16 @@ function modifyData(data) {
 	});
 }
 
-
 function GetData() {
 	const [isConnected, setIsConnected] = useState(socket.connected);
 	const dispatch = useDispatch();
-	
-
 
 	useEffect(() => {
 		socket.on("connect", () => {
 			setIsConnected(true);
 			socket.emit("start");
 		});
-		
+
 		socket.on("disconnect", () => {
 			setIsConnected(false);
 		});
@@ -36,14 +33,7 @@ function GetData() {
 			let tickersData = [];
 			tickersData = modifyData(data);
 
-			dispatch(
-				tickersChangeAsync({
-					value: tickersData,
-					cases: "all",
-				})
-			);
-
-			
+			dispatch(tickersChangeAsync(tickersData));
 		});
 
 		return () => {
